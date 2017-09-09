@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="MarketPlatformPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.lacv.marketplatform.entities.Category</class>
+    <class>com.lacv.marketplatform.entities.Commerce</class>
+    <class>com.lacv.marketplatform.entities.InventoryOrder</class>
+    <class>com.lacv.marketplatform.entities.InventoryorderDetail</class>
+    <class>com.lacv.marketplatform.entities.LogProcess</class>
+    <class>com.lacv.marketplatform.entities.Mail</class>
+    <class>com.lacv.marketplatform.entities.MailTemplate</class>
+    <class>com.lacv.marketplatform.entities.MainLocation</class>
+    <class>com.lacv.marketplatform.entities.Payment</class>
+    <class>com.lacv.marketplatform.entities.Product</class>
+    <class>com.lacv.marketplatform.entities.Property</class>
+    <class>com.lacv.marketplatform.entities.PurchaseOrder</class>
+    <class>com.lacv.marketplatform.entities.PurchaseorderDetail</class>
+    <class>com.lacv.marketplatform.entities.Role</class>
+    <class>com.lacv.marketplatform.entities.Supplier</class>
+    <class>com.lacv.marketplatform.entities.User</class>
+    <class>com.lacv.marketplatform.entities.UserRole</class>
+    <class>com.lacv.marketplatform.entities.WebFile</class>
+    <class>com.lacv.marketplatform.entities.ProductImage</class>
+    <class>com.lacv.marketplatform.entities.SubCategory</class>
+    <class>com.lacv.marketplatform.entities.RoleAuthorization</class>
+    <class>com.lacv.marketplatform.entities.Authorization</class>
+    <class>com.lacv.marketplatform.entities.WebresourceAuthorization</class>
+    <class>com.lacv.marketplatform.entities.WebResource</class>
+    <class>com.lacv.marketplatform.entities.WebresourceRole</class>
+    <class>com.lacv.marketplatform.entities.LeadTable</class>
+    <class>com.lacv.marketplatform.entities.Column</class>
+    <class>com.lacv.marketplatform.entities.TableColumn</class>
+    <properties>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="wildfly.jpa.default-unit" value="true"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="e1"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+    <!-- enabling annotation driven configuration /-->
+    <context:annotation-config/>
+    
+    <context:property-placeholder location="classpath*:config/*.properties" ignore-unresolvable="true"/>
+    
+    <import resource="dao-config.xml"/>
+    
+    <!--<import resource="security-config.xml"/>-->
+    
+    <import resource="mail-velocity-config.xml"/>
+
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    
+    <context:component-scan base-package="com.lacv.marketplatform.daos" />
+    <context:component-scan base-package="com.lacv.marketplatform.services" />
+    <context:component-scan base-package="com.lacv.marketplatform.mappers" />
+    <context:component-scan base-package="com.lacv.marketplatform.components" />
+    <context:component-scan base-package="com.dot.gcpbasedot.service.gcp" />
+    <context:component-scan base-package="com.dot.gcpbasedot.components" />
+    
+    <bean id="menuComponent" class="com.dot.gcpbasedot.components.MenuComponent">
+        <property name="basePath" value="/vista" />
+    </bean>
+    
+    <bean id="tableColumnsConfig" class="com.dot.gcpbasedot.components.TableColumnsConfig">
+        <property name="columsConfigNameQuery" value="queriesTableColumn.columsConfig" />
+    </bean>
+    
+    <bean id="extViewConfig" class="com.dot.gcpbasedot.components.ExtViewConfig">
+        <property name="appName" value="DWICH" />
+        <property name="favicon" value="/img/habitares.png" />
+    </bean>
+
+</beans>
