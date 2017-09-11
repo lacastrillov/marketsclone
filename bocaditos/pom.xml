@@ -326,7 +326,7 @@
             <properties>
                 <domain.url>http://localhost:8086</domain.url>
                 <static.domain.url>http://localhost:8086</static.domain.url>
-                <static.folder>/opt/apache-tomcat-8.5.20-as-bocaditos/webapps/</static.folder>
+                <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
                 <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
                 <jdbc.username>root</jdbc.username>
@@ -349,7 +349,7 @@
             <properties>
                 <domain.url>http://186.83.137.240:8086</domain.url>
                 <static.domain.url>http://186.83.137.240:8086</static.domain.url>
-                <static.folder>/opt/apache-tomcat-8.5.20-as-bocaditos/webapps/</static.folder>
+                <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
                 <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
                 <jdbc.username>root</jdbc.username>
@@ -372,7 +372,7 @@
             <properties>
                 <domain.url>http://www.bocaditos.ga</domain.url>
                 <static.domain.url>http://www.bocaditos.ga</static.domain.url>
-                <static.folder>/opt/apache-tomcat-8.5.20-as-bocaditos/webapps/</static.folder>
+                <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
                 <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
                 <jdbc.username>root</jdbc.username>
