@@ -325,10 +325,10 @@
             </activation>
             <properties>
                 <domain.url>http://localhost:8082</domain.url>
-                <static.domain.url>http://localhost:8082</static.domain.url>
+                <static.domain.url>http://localhost:8082/</static.domain.url>
                 <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
+                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?useSSL=false</jdbc.url>
                 <jdbc.username>root</jdbc.username>
                 <jdbc.password>calsatrilievlo</jdbc.password>
                 <mail.host>smtp.gmail.com</mail.host>
@@ -348,10 +348,10 @@
             </activation>
             <properties>
                 <domain.url>http://186.83.137.240:8082</domain.url>
-                <static.domain.url>http://186.83.137.240:8082</static.domain.url>
+                <static.domain.url>http://186.83.137.240:8082/</static.domain.url>
                 <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
+                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?useSSL=false</jdbc.url>
                 <jdbc.username>root</jdbc.username>
                 <jdbc.password>calsatrilievlo</jdbc.password>
                 <mail.host>smtp.gmail.com</mail.host>
@@ -371,10 +371,10 @@
             </activation>
             <properties>
                 <domain.url>http://www.bocaditos.ga</domain.url>
-                <static.domain.url>http://www.bocaditos.ga</static.domain.url>
+                <static.domain.url>http://www.bocaditos.ga/</static.domain.url>
                 <static.folder>/opt/apache-tomcat-9.0.0.M26-bocaditos/webapps/</static.folder>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?zeroDateTimeBehavior=convertToNull</jdbc.url>
+                <jdbc.url>jdbc:mysql://localhost:3306/bocaditosdb?useSSL=false</jdbc.url>
                 <jdbc.username>root</jdbc.username>
                 <jdbc.password>calsatrilievlo</jdbc.password>
                 <mail.host>smtp.gmail.com</mail.host>
