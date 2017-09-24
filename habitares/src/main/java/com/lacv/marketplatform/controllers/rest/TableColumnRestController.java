@@ -10,7 +10,7 @@ package com.lacv.marketplatform.controllers.rest;
 import com.dot.gcpbasedot.components.TableColumnsConfig;
 import com.lacv.marketplatform.mappers.TableColumnMapper;
 import com.lacv.marketplatform.services.TableColumnService;
-import com.dot.gcpbasedot.controller.RestController;
+import com.dot.gcpbasedot.controller.RestEntityController;
 import com.dot.gcpbasedot.dto.GenericTableColumn;
 import com.dot.gcpbasedot.service.JdbcDirectService;
 import com.dot.gcpbasedot.util.Formats;
@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value="/rest/tableColumn")
-public class TableColumnRestController extends RestController {
+public class TableColumnRestController extends RestEntityController {
     
     @Autowired
     TableColumnService tableColumnService;
@@ -76,7 +76,7 @@ public class TableColumnRestController extends RestController {
             JSONObject jsonResult= new JSONObject(new String(result, StandardCharsets.UTF_8));
             if(jsonResult.getBoolean("success")){
                 JSONObject jsonColumn= jsonResult.getJSONObject("data");
-                TableColumn tableColumn= tableColumnService.findById(jsonColumn.getInt("id"));
+                TableColumn tableColumn= tableColumnService.loadById(jsonColumn.getInt("id"));
                 String tableName= tableColumn.getLeadTable().getTableAlias();
                 
                 GenericTableColumn column= new GenericTableColumn();
@@ -118,7 +118,7 @@ public class TableColumnRestController extends RestController {
                 String columnAlias= formatColumnAlias(jsonObject.getString("columnAlias"));
                 jsonObject.put("columnAlias", columnAlias);
             }
-            TableColumn tableColumn= tableColumnService.findById(jsonObject.getInt("id"));
+            TableColumn tableColumn= tableColumnService.loadById(jsonObject.getInt("id"));
             oldColumnAlias= tableColumn.getColumnAlias();
             tableName= tableColumn.getLeadTable().getTableAlias();
         } catch (Exception e) {
@@ -160,7 +160,7 @@ public class TableColumnRestController extends RestController {
         String tableName="";
         String columnAlias= "";
         try {
-            TableColumn tableColumn= tableColumnService.findById(new Integer(idEntity));
+            TableColumn tableColumn= tableColumnService.loadById(new Integer(idEntity));
             columnAlias= tableColumn.getColumnAlias();
             tableName= tableColumn.getLeadTable().getTableAlias();
         } catch (Exception e) {

@@ -9,7 +9,7 @@ package com.lacv.marketplatform.controllers.rest;
 
 import com.lacv.marketplatform.mappers.ProductImageMapper;
 import com.lacv.marketplatform.services.ProductImageService;
-import com.dot.gcpbasedot.controller.RestController;
+import com.dot.gcpbasedot.controller.RestEntityController;
 import com.lacv.marketplatform.components.WebConstants;
 import com.lacv.marketplatform.dtos.ProductImageDto;
 import com.lacv.marketplatform.entities.ProductImage;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value="/rest/productImage")
-public class ProductImageRestController extends RestController {
+public class ProductImageRestController extends RestEntityController {
     
     @Autowired
     ProductImageService productImageService;
@@ -64,7 +64,7 @@ public class ProductImageRestController extends RestController {
     public String saveFilePart(int slice, String fileName, String fileType, int fileSize, InputStream is, Object idEntity) {
         try {
             String imageName= idEntity + "_" +"product-image."+FilenameUtils.getExtension(fileName);
-            ProductImage productImage = productImageService.findById(idEntity);
+            ProductImage productImage = productImageService.loadById(idEntity);
             WebFile parentWebFile= getParentWebFile(productImage.getProduct().getId());
             
             productImage.setImage(webConstants.LOCAL_DOMAIN + WebConstants.ROOT_FOLDER + parentWebFile.getPath() + parentWebFile.getName() + "/" + imageName);
@@ -82,7 +82,7 @@ public class ProductImageRestController extends RestController {
     public String saveResizedImage(String fileName, String fileType, int width, int height, int fileSize, InputStream is, Object idEntity){
         try {
             String imageName= idEntity + "_" + width + "x" + height + "_" +"product-image."+FilenameUtils.getExtension(fileName);
-            ProductImage productImage = productImageService.findById(idEntity);
+            ProductImage productImage = productImageService.loadById(idEntity);
             WebFile parentWebFile= getParentWebFile(productImage.getProduct().getId());
             webFileService.createByFileData(parentWebFile, 0, imageName, fileType, fileSize, is);
             

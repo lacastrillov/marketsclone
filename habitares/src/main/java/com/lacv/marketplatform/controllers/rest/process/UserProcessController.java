@@ -15,7 +15,7 @@ import com.lacv.marketplatform.services.LogProcessService;
 import com.lacv.marketplatform.services.UserService;
 import com.lacv.marketplatform.services.security.SecurityService;
 import com.dot.gcpbasedot.annotation.DoProcess;
-import com.dot.gcpbasedot.controller.RestController;
+import com.dot.gcpbasedot.controller.RestProcessController;
 import com.dot.gcpbasedot.util.AESEncrypt;
 import com.lacv.marketplatform.components.WebConstants;
 import com.lacv.marketplatform.dtos.process.ContactUserPDto;
@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value="/rest/processUser")
-public class UserProcessController extends RestController {
+public class UserProcessController extends RestProcessController {
     
     @Autowired
     UserService userService;
@@ -81,7 +81,7 @@ public class UserProcessController extends RestController {
         BasicResultDto result= new BasicResultDto();
         result.setUsername(createPassword.getUsername());
         
-        User user= userService.findUniqueByParameter("username", createPassword.getUsername());
+        User user= userService.loadByParameter("username", createPassword.getUsername());
         
         result.setSuccess(false);
         if(user!=null){
@@ -128,7 +128,7 @@ public class UserProcessController extends RestController {
     public BasicResultDto registerUser(RegisterUserPDto registerUserPDto){
         BasicResultDto result= new BasicResultDto();
         
-        User user= userService.findUniqueByParameter("email", registerUserPDto.getEmail());
+        User user= userService.loadByParameter("email", registerUserPDto.getEmail());
         result.setUsername(registerUserPDto.getEmail());
         if(user==null){
             user= new User();
@@ -145,7 +145,7 @@ public class UserProcessController extends RestController {
             
             userService.create(user);
             
-            Role role= roleService.findUniqueByParameter("name", WebConstants.CLIENT_ROLE);
+            Role role= roleService.loadByParameter("name", WebConstants.CLIENT_ROLE);
             UserRole userRole= new UserRole();
             userRole.setUser(user);
             userRole.setRole(role);
